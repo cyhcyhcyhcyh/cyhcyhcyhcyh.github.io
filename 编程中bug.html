@@ -1,0 +1,27 @@
+## 描述bug的代码最多5行
+1、
+if ("all"==statType.getKey()) {
+    continue;
+}
+## ==
+
+2、
+if (CollectionUtils.isEmpty(statType.getSubList())) {
+    continue;
+}
+for (ObjectTypeStat subStatType : statType.getSubList()) {
+## list for循环之前，要进行null校验
+
+3、
+if (objectTypeStatMap.get(tmpType) == null) {
+    objectTypeStatMap.put(tmpType, 1l);
+}
+## 初始值应该赋1
+
+4、
+String tmpType = ServerConfig.SOURCE_MAP.get(dataUnit.getType());
+if (tmpType != null) {
+    long tmpCount = objectTypeStatMap.get(tmpType);
+    objectTypeStatMap.put(tmpType, tmpCount + 1);
+## 需要对ServerConfig.SOURCE_MAP.get(dataUnit.getType())进行统计，而不是dataUnit.getType()
+
