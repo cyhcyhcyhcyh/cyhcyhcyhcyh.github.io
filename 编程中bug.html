@@ -25,3 +25,7 @@ if (tmpType != null) {
     objectTypeStatMap.put(tmpType, tmpCount + 1);
 ## 需要对ServerConfig.SOURCE_MAP.get(dataUnit.getType())进行统计，而不是dataUnit.getType()
 
+5、
+Double直接转Integer会失败，Double d = (Double)value;
+int contact = d.intValue();
+Integer.valueOf(contact)实现
