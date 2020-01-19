@@ -14,9 +14,10 @@ BEGIN
 		WHILE flag <> 1 DO
 			OPEN s_id;
 				FETCH s_id INTO old_order;
-				IF (old_order != NULL)
+				IF (old_order IS NOT NULL)
 				THEN
 					DELETE FROM user_template WHERE global_template_id = 97 AND user_id = old_id;
+					UPDATE user_template SET display_order = display_order+1 WHERE global_template_id NOT IN (149,159,49,59) AND user_id = old_id;
 					INSERT INTO user_template(user_id, title, description, global_template_id, display_order, visible, setting_type, ext_type, update_time, create_time) VALUES(old_id, '搜索共同联系人', '二度搜索找出共同联系人', 97, old_order, 1, 'com.sophon.object.SameContactPerson', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 				END IF;
 			CLOSE s_id;
@@ -28,4 +29,4 @@ END
 //
 DELIMITER ;
 CALL testcyh();
-DROP PROCEDURE IF EXISTS testcyh;
+# DROP PROCEDURE if exists testcyh;
