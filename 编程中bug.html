@@ -32,3 +32,8 @@ Integer.valueOf(contact)实现
 
 6、
 对于使用hw大数据组件，需要进行权限认证，通过参数kerberos.mode进行判断。启动加参数-Dkerberos.mode=true
+
+7、
+ebeanServer.find(UserTemplate.class)
+                .orderBy("display_order asc, id asc")
+ebean对多个字段进行排序，需要放在一个orderBy方法参数里
