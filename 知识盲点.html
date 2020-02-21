@@ -25,3 +25,10 @@
 12、proxy.invokeSuper(obj,arg)：cglib代理方法执行父类的方法，proxy：MethodProxy，obj:由CGLib动态生成的代理类实例
 
 13、InvocationHandler接口和MethodInterceptor接口分别为jdk动态代理和cglib动态代理的拦截接口
+
+14、ebeanServer.find(UserTemplate.class)
+                .orderBy("display_order asc, id asc")
+                .where()
+                .eq("user_id", userId)
+                .findList();
+    ebean的where语句使用.where()进入，使用eq("","")判断，使用findList()获取值
