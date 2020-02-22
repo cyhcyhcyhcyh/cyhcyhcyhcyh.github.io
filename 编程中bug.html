@@ -37,3 +37,11 @@ Integer.valueOf(contact)实现
 ebeanServer.find(UserTemplate.class)
                 .orderBy("display_order asc, id asc")
 ebean对多个字段进行排序，需要放在一个orderBy方法参数里
+
+8、
+OntologyManager.java初始化失败，可能因为hbase初始化失败，conf/hdfs/hdfs.properties文件指定的hdfs_site_file_path值不对。
+
+9、
+com.sophon.object.UsedCarTradeEvent : com.sophon.property.address
+      com.sophon.object.aircraftPath:com.sophon.prope
+java中yaml文件定义格式要注意，冒号后面需要有空格，且缩进应该一样。可对比上下文编写。
